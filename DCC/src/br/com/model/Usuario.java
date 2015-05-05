@@ -58,7 +58,8 @@ public abstract class Usuario {
 		return "Nome: " + this.nome +
 				"\n Sobrenome: " + this.sobrenome +
 				"\n Matricula: " + this.matricula +
-				"\n Contato: " + this.contato;
+				"\n Contato: " + this.contato +
+				"\n Endereço: " + this.endereco;
 	}
 	
 }
