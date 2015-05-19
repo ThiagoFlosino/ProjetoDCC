@@ -1,7 +1,13 @@
 package br.com.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
 public class Contato {
-	
+	@Id @GeneratedValue
+	private Long id;
 	private String telefoneResidencial;
 	private String telefoneCelular;
 	private String email;
@@ -14,6 +20,10 @@ public class Contato {
 		this.email = email;
 	}
 	
+	public Contato() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public String getTelefoneResidencial() {
 		return telefoneResidencial;
 	}

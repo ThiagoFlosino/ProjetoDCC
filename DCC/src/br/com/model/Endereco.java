@@ -1,7 +1,13 @@
 package br.com.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
 public class Endereco {
-	
+	@Id @GeneratedValue
+	private Long id;
 	private String logradouro;
 	private String uf;
 	private String pais;
@@ -20,6 +26,10 @@ public class Endereco {
 		this.complemento = complemento;
 	}
 	
+	public Endereco() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public String getLogradouro() {
 		return logradouro;
 	}
@@ -50,7 +60,4 @@ public class Endereco {
 	public void setComplemento(String complemento) {
 		this.complemento = complemento;
 	}
-
-	
-	
 }

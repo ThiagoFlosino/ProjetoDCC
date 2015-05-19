@@ -1,14 +1,30 @@
 package br.com.model;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "usuario")
 public abstract class Usuario {
 	
+	@Id @GeneratedValue
+	protected Long ID;
 	protected String nome;
 	protected String sobrenome;
 	protected String cpf;
 	protected String matricula;
+	@OneToOne(cascade=CascadeType.ALL)
 	protected Endereco endereco;
+	@OneToOne(cascade=CascadeType.ALL)
 	protected Contato contato;
+/*	@OneToMany
 	protected Reuniao reuniao;
+	*/
 	
 	
 	public String getNome() {
@@ -35,25 +51,28 @@ public abstract class Usuario {
 	public void setMatricula(String matricula) {
 		this.matricula = matricula;
 	}
+	@OneToOne(cascade=CascadeType.ALL)
 	public Endereco getEndereco() {
 		return endereco;
 	}
 	public void setEndereco(Endereco endereco) {
 		this.endereco = endereco;
 	}
-	public Contato getContato() {
+	@OneToOne(cascade=CascadeType.ALL)
+ 	public Contato getContato() {
+ 
 		return contato;
 	}
 	public void setContato(Contato contato) {
 		this.contato = contato;
 	}
-	public Reuniao getReuniao() {
+/*	public Reuniao getReuniao() {
 		return reuniao;
 	}
 	public void setReuniao(Reuniao reuniao) {
 		this.reuniao = reuniao;
 	}
-	
+*/
 	public String toString(){
 		return "Nome: " + this.nome +
 				"\n Sobrenome: " + this.sobrenome +
@@ -61,5 +80,4 @@ public abstract class Usuario {
 				"\n Contato: " + this.contato +
 				"\n Endereço: " + this.endereco;
 	}
-	
 }
